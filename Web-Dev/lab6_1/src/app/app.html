@@ -4,7 +4,8 @@
   <nav class="links">
     <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
     <a routerLink="/about" routerLinkActive="active">About</a>
-    <a routerLink="/albums" routerLinkActive="active">Albums</a>
+    <a routerLink="/albums" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Albums</a>
+    <a routerLink="/albums/new" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">New Album</a>
   </nav>
 </header>
 
