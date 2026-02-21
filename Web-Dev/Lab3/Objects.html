@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<script>
+  "use strict";
+
+  let user = {
+    name: "Tomiris",
+    age: 30
+  };
+
+  let key = prompt("What do you want to know about the user?", "name");
+
+  // access by variable
+  alert( user[key] ); // Tomiris (if enter "name")
+
+  // these properties are all right
+  let obj = {
+    for: 1,
+    let: 2,
+    return: 3
+  };
+
+  alert( obj.for + obj.let + obj.return );  // 6
+</script>
+
+<!--
+Objects are associative arrays with several special features.
+
+They store properties (key-value pairs), where:
+
+Property keys must be strings or symbols (usually strings).
+Values can be of any type.
+To access a property, we can use:
+
+The dot notation: obj.property.
+Square brackets notation obj["property"]. Square brackets allow taking the key from a variable, like obj[varWithKey].
+Additional operators:
+
+To delete a property: delete obj.prop.
+To check if a property with the given key exists: "key" in obj.
+To iterate over an object: for (let key in obj) loop.
+!-->

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<script>
+  "use strict";
+
+  let arr = ["I", "go", "home"];
+
+  delete arr[1];
+
+  alert( arr[1] );
+
+  // now arr = ["I",  , "home"];
+  alert( arr.length ); // 3
+
+  let arrs = ["I", "study", "JavaScript", "right", "now"];
+  let removed = arrs.splice(0, 2);
+
+  alert( removed );
+</script>
+
+<!--
+We already know methods that add and remove items from the beginning or the end:
+
+arr.push(...items) – adds items to the end,
+arr.pop() – extracts an item from the end,
+arr.shift() – extracts an item from the beginning,
+arr.unshift(...items) – adds items to the beginning.
+Here are a few others.
+
+!-->
+

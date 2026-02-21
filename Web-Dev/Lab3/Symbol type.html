@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<script>
+  "use strict";
+
+  let user = { // belongs to another code
+    name: "Tomiris"
+  };
+
+  let id = Symbol("id");
+
+  user[id] = 1;
+
+  alert( user[id] ); // we can access the data using the symbol as the key
+</script>
+
+<!--
+What’s the benefit of using Symbol("id") over a string "id"?
+
+As user objects belong to another codebase, it’s unsafe to add fields to them, since we might affect pre-defined behavior in that other codebase. However, symbols cannot be accessed accidentally. The third-party code won’t be aware of newly defined symbols, so it’s safe to add symbols to the user objects.
+
+Also, imagine that another script wants to have its own identifier inside user, for its own purposes.
+
+!-->

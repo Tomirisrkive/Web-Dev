@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<script>
+  "use strict";
+
+  let user = "Tomiris";
+
+  alert(user ?? "Anonymous"); // Tomiris (user is not null/undefined)
+
+
+  let height = 0;
+
+  alert(height || 100); // 100
+  alert(height ?? 100); // 0
+
+</script>
+
+<!--
+The operator ?? has a very low precedence, only a bit higher than ? and =, so consider adding parentheses when using it in an expression.
+
+It’s forbidden to use it with || or && without explicit parentheses.
+!-->

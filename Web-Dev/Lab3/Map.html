@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<script>
+  "use strict";
+
+  let Tomiris = { name: "Tomiris" };
+
+  // for every user, let's store their visits count
+  let visitsCountMap = new Map();
+  visitsCountMap.set(Tomiris, 123);
+
+  alert( visitsCountMap.get(Tomiris) ); // 123
+</script>
+
+<!--
+Map is a collection of keyed data items, just like an Object. But the main difference is that Map allows keys of any type.
+
+Methods and properties are:
+
+new Map() – creates the map.
+map.set(key, value) – stores the value by the key.
+map.get(key) – returns the value by the key, undefined if key doesn’t exist in map.
+map.has(key) – returns true if the key exists, false otherwise.
+map.delete(key) – removes the element (the key/value pair) by the key.
+map.clear() – removes everything from the map.
+map.size – returns the current element count.
+
+!-->
