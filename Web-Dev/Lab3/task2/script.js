@@ -1,18 +1,18 @@
 const taskInput = document.getElementById("taskInput");
-const addBtn = document.getElementById("addBtn");
+const addBot = document.getElementById("addbot");
 const taskList = document.getElementById("taskList");
+const filterBtns = document.querySelectorAll(".filter-btn");
 
-addBtn.addEventListener("click", addTask);
+let currentFilter = "all";
 
-taskInput.addEventListener("keypress", function(e) {
-    if (e.key === "Enter") {
-        addTask();
-    }
+addBot.addEventListener("click", addTask);
+
+taskInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") addTask();
 });
 
 function addTask() {
     const text = taskInput.value.trim();
-
     if (text === "") return;
 
     const li = document.createElement("li");
@@ -30,21 +30,45 @@ function addTask() {
     deleteBtn.className = "delete";
     deleteBtn.innerHTML = "🗑";
 
-    checkbox.addEventListener("change", function() {
-        span.classList.toggle("done");
+    checkbox.addEventListener("change", () => {
+        span.classList.toggle("done", checkbox.checked);
+        applyFilter();
     });
 
-    deleteBtn.addEventListener("click", function() {
-        taskList.removeChild(li);
+    deleteBtn.addEventListener("click", () => {
+        li.remove();
+        applyFilter();
     });
 
     leftDiv.appendChild(checkbox);
     leftDiv.appendChild(span);
-
     li.appendChild(leftDiv);
     li.appendChild(deleteBtn);
-
     taskList.appendChild(li);
 
     taskInput.value = "";
+    applyFilter();
+}
+
+filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+        filterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentFilter = btn.getAttribute("data-filter");
+        applyFilter();
+    });
+});
+
+function applyFilter() {
+    const items = taskList.querySelectorAll("li");
+    items.forEach(li => {
+        const isCompleted = li.querySelector("span").classList.contains("done");
+        if (currentFilter === "all") {
+            li.classList.remove("is-hidden");
+        } else if (currentFilter === "active") {
+            li.classList.toggle("is-hidden", isCompleted);
+        } else if (currentFilter === "completed") {
+            li.classList.toggle("is-hidden", !isCompleted);
+        }
+    });
 }

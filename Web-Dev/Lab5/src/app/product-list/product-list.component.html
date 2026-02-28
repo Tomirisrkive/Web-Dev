@@ -1,0 +1,8 @@
+<div class="product-grid">
+  @for (product of products; track product.id) {
+    <app-product-item
+      [product]="product"
+      (toggleFavorite)="toggleFavorite.emit($event)">
+    </app-product-item>
+  }
+</div>

@@ -1,0 +1,49 @@
+<div class="header">
+  <h1>Kaspi Online Store</h1>
+</div>
+
+<div class="search-container">
+  <label for="search">Search products: </label>
+  <input
+    id="search"
+    type="text"
+    [(ngModel)]="searchText"
+    placeholder="Search..."
+  >
+  <p class="search-status">
+    Showing: {{ filteredProducts.length }} / {{ products.length }} products
+  </p>
+</div>
+
+<div class="product-grid">
+  @for (product of filteredProducts; track product.id) {
+    <div class="product-card">
+
+      <div class="thumbnail-layout">
+        <img [src]="product.image" [alt]="product.name" class="main-photo">
+        <div class="thumbnail-container">
+          @for (imgUrl of product.images; track imgUrl) {
+            <img
+              [src]="imgUrl"
+              class="thumbnail"
+              (click)="product.image = imgUrl"
+              alt="Thumbnail">
+          }
+        </div>
+      </div>
+
+      <h3>{{ product.name }}</h3>
+      <p class="description">{{ product.description }}</p>
+
+      <div class="details">
+        <span class="price">{{ product.price }} ₸</span>
+        <span class="rating">⭐ {{ product.rating }}</span>
+      </div>
+
+      <div class="buttons">
+        <a [href]="product.link" target="_blank" class="buy-link">Открыть в Kaspi</a>
+        <button (click)="share(product.link)" class="share-btn">TG</button>
+      </div>
+    </div>
+  }
+</div>

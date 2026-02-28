@@ -1,0 +1,34 @@
+<div class="header">
+  <h1>Kaspi Online Store</h1>
+</div>
+
+@if (likedProducts.length > 0) {
+  <div class="favorites-section">
+    <h2>⭐ Favorites ({{ likedProducts.length }})</h2>
+    <div class="favorites-grid">
+      @for (item of likedProducts; track item.id) {
+        <app-product-item
+          [product]="item"
+          [isFavoriteMode]="true"
+          (remove)="removeFromFavorites($event)">
+        </app-product-item>
+      }
+    </div>
+  </div>
+  <hr>
+}
+
+<div class="search-container">
+  <input type="text" [(ngModel)]="searchText" placeholder="Search...">
+</div>
+
+<div class="product-grid">
+  @for (item of filteredProducts; track item.id) {
+    <app-product-item
+      [product]="item"
+      [isFavoriteMode]="false"
+      (add)="addToFavorites($event)"
+      (remove)="removeProduct($event)">
+    </app-product-item>
+  }
+</div>

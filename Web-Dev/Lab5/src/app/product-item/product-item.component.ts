@@ -1,0 +1,21 @@
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Product } from '../product.model';
+
+@Component({
+  selector: 'app-product-item',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './product-item.component.html',
+  styleUrl: './product-item.component.css'
+})
+export class ProductItemComponent {
+
+  @Input() product!: Product;
+
+  @Output() toggleFavorite = new EventEmitter<number>();
+
+  onToggleFavorite() {
+    this.toggleFavorite.emit(this.product.id);
+  }
+}

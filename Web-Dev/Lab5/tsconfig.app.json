@@ -7,9 +7,9 @@
     "types": []
   },
   "include": [
-    "online-store/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
-    "online-store/**/*.spec.ts"
+    "src/**/*.spec.ts"
   ]
 }
