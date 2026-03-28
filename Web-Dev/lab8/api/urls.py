@@ -8,3 +8,6 @@ urlpatterns = [
     path('categories/<int:id>/', category_detail),
     path('categories/<int:id>/products/', category_products),
 ]
+3
+#source venv/bin/activate
+#python3 manage.py runserver

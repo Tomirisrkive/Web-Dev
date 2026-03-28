@@ -8,7 +8,7 @@ class Task:
         self.completed = True
 
     def __str__(self) -> str:
-        status = "✅" if self.completed else "❌"
+        status = "✅" if self.completed else "❌"  #и так нужно было поставить
         return f"[{self.id}] {self.title} {status}"
 
     def to_dict(self) -> dict:

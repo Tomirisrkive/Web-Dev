@@ -5,7 +5,7 @@ from storage import load_tasks, save_tasks
 DATA_FILE = "data.json"
 
 def show_menu():
-    print("\n=== Task Manager ===")
+    print("Task Manager")
     print("1. Show tasks")
     print("2. Add task")
     print("3. Complete task")

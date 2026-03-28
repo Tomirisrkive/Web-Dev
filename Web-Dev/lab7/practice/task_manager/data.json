@@ -7,6 +7,16 @@
     {
         "id": 2,
         "title": "Learn Python",
+        "completed": true
+    },
+    {
+        "id": 3,
+        "title": "Cat",
+        "completed": true
+    },
+    {
+        "id": 4,
+        "title": "Chineese book",
         "completed": false
     }
 ]

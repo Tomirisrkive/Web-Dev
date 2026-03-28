@@ -1,13 +1,24 @@
 from django.http import JsonResponse
 from .models import Product, Category
 
-# 1. Список всех товаров
 def product_list(request):
     products = Product.objects.all()
+    category_id = request.GET.get('category')
+    if category_id:
+        products = products.filter(category_id=category_id)
+
+    active = request.GET.get('active')
+    if active:
+        is_active = active.lower() == 'true'
+        products = products.filter(is_active=is_active)
+
+    search = request.GET.get('search')
+    if search:
+        products = products.filter(name__icontains=search)
+
     products_json = [p.to_json() for p in products]
     return JsonResponse(products_json, safe=False)
 
-# 2. Один товар по ID
 def product_detail(request, id):
     try:
         product = Product.objects.get(id=id)
@@ -15,13 +26,11 @@ def product_detail(request, id):
     except Product.DoesNotExist:
         return JsonResponse({'error': 'Product not found'}, status=404)
 
-# 3. Список всех категорий
 def category_list(request):
     categories = Category.objects.all()
     categories_json = [c.to_json() for c in categories]
     return JsonResponse(categories_json, safe=False)
 
-# 4. Одна категория по ID
 def category_detail(request, id):
     try:
         category = Category.objects.get(id=id)
@@ -29,7 +38,6 @@ def category_detail(request, id):
     except Category.DoesNotExist:
         return JsonResponse({'error': 'Category not found'}, status=404)
 
-# 5. Все товары внутри одной категории
 def category_products(request, id):
     try:
         category = Category.objects.get(id=id)

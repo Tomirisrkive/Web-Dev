@@ -15,8 +15,7 @@ class Product(models.Model):
     description = models.TextField()
     count = models.IntegerField()
     is_active = models.BooleanField(default=True)
-    # Связываем продукт с категорией
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products')
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='products') #самый важный есои удаоит все удаляетсф
 
     def to_json(self):
         return {

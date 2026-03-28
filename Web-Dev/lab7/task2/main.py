@@ -11,8 +11,8 @@ def main():
     for a in animals:
         print(a)
         print(a.info())
-        print(a.speak())         # speak()
-        print("-" * 40)
+        print(a.speak())
+        print("/" * 40)
 
     print(dog1.train())
     print(cat1.scratch())
