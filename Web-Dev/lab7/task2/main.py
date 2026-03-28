@@ -1,5 +1,4 @@
 from models import Animal, Dog, Cat
-#dog и cat
 def main():
     animal = Animal("Generic", 5, "Unknown")
     dog1 = Dog("Buddy", 3, "Golden Retriever")
@@ -11,8 +10,8 @@ def main():
     for a in animals:
         print(a)
         print(a.info())
-        print(a.speak())
-        print("/" * 40)
+        print(a.speak())         # speak()
+        print("-" * 40)
 
     print(dog1.train())
     print(cat1.scratch())

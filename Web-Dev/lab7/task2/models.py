@@ -5,7 +5,7 @@ class Animal:
         self.species = species
 
     def speak(self):
-        return "animal sound"
+        return "Some generic animal sound"
 
     def info(self):
         return self.name + " is a " + str(self.age) + "-year-old " + self.species
